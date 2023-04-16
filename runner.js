@@ -18,6 +18,8 @@ const benchmarks = [
 
 const queue = new Queue()
 
+process.stdout.write(`module,short static,static with same radix,dynamic route,mixed static dynamic,long static,wildcard,all together`)
+
 benchmarks.forEach(file => {
   queue.add(runner.bind({ file: resolve('benchmarks', file) }))
 })

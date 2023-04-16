@@ -10,18 +10,16 @@ function now () {
 }
 
 function getOpsSec (ms) {
-  return Number(((operations * 1000) / ms).toFixed()).toLocaleString()
+  return Number(((operations * 1000) / ms).toFixed())
 }
 
 function print (name, time) {
-  console.log(chalk.yellow(name), getOpsSec(now() - time), 'ops/sec')
+  process.stdout.write(`${getOpsSec(now() - time)},`);
 }
 
 function title (name) {
-  console.log(chalk.green(`
-${'='.repeat(name.length + 2)}
- ${name}
-${'='.repeat(name.length + 2)}`))
+  process.stdout.write(`
+${name},`);
 }
 
 function Queue () {
